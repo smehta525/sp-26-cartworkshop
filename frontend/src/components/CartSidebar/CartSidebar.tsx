@@ -1,15 +1,10 @@
-import { useCart } from "../../context/CartContext";
+import { useCartContext } from "../../contexts/CartContext";
 import styles from "./CartSidebar.module.css";
 
 export function CartSidebar() {
-  const { state, dispatch } = useCart();
+  const { state, dispatch, cartTotal } = useCartContext();
 
   if (!state.isOpen) return null;
-
-  const total = state.items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
 
   return (
     <>
@@ -106,7 +101,7 @@ export function CartSidebar() {
           <div className={styles.footer}>
             <div className={styles.total}>
               <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>${cartTotal.toFixed(2)}</span>
             </div>
             <button
               className={styles.clearButton}

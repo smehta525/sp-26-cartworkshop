@@ -78,4 +78,7 @@ export function cartReducer(state: CartState, action: CartAction): CartState {
         isOpen: !state.isOpen,
       };
   }
+
+  const exhaustiveCheck: never = action;
+  return exhaustiveCheck;
 }

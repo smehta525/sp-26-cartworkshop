@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchProduct, NotFoundError } from "../api/products";
-import { useCart } from "../context/CartContext";
+import { useCartContext } from "../contexts/CartContext";
 import type { ProductResponse } from "../types/product";
 import styles from "./ProductDetailPage.module.css";
 
@@ -13,7 +13,7 @@ type FetchState =
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const { dispatch } = useCart();
+  const { dispatch } = useCartContext();
   const [state, setState] = useState<FetchState>({ status: "loading" });
 
   useEffect(() => {

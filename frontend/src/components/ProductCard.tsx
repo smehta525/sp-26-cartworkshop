@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { AddToCartButton } from "./AddToCartButton/AddToCartButton";
 import type { ProductResponse } from "../types/product";
 import styles from "./ProductCard.module.css";
 
@@ -8,8 +8,6 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { dispatch } = useCart();
-
   return (
     <div className={styles.card}>
       <Link to={`/products/${product.id}`} className={styles.cardLink}>
@@ -33,23 +31,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
       <div className={styles.cardActions}>
-        <button
-          className={styles.addToCartButton}
-          onClick={() =>
-            dispatch({
-              type: "ADD_TO_CART",
-              payload: {
-                productId: product.id,
-                productName: product.name ?? "Product",
-                price: product.price,
-                imageUrl: product.imageUrl ?? undefined,
-              },
-            })
-          }
-          aria-label={`Add ${product.name} to cart`}
-        >
-          Add to Cart
-        </button>
+        <AddToCartButton
+          product={{
+            id: product.id,
+            name: product.name ?? "Product",
+            price: product.price,
+            imageUrl: product.imageUrl ?? undefined,
+          }}
+        />
       </div>
     </div>
   );

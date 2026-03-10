@@ -1,0 +1,32 @@
+# Buckeye Marketplace - AI Agent Instructions
+
+## Project Overview
+Buckeye Marketplace is a full-stack e-commerce application built with:
+
+- Frontend: React + TypeScript (Vite)
+- Backend: .NET Web API with Entity Framework Core
+- Database: SQL Server (InMemory for development)
+
+## Architecture
+Frontend: http://localhost:5173
+Backend: https://localhost:5001
+API path: /api/
+
+## Frontend Conventions
+- Components live in src/components
+- Each component has its own folder
+- CSS Modules (.module.css)
+- Types in src/types
+- Context + useReducer for feature state
+
+## Code Style
+- Functional components
+- TypeScript strict
+- Typed props
+- Named exports for components
+- Default exports for pages
+
+## Current State
+Product catalog working
+Shopping cart in progress
+Authentication not started
