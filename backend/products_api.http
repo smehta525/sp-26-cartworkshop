@@ -1,0 +1,21 @@
+@backend_HostAddress = http://localhost:5228
+
+### Get all products
+GET {{backend_HostAddress}}/api/products/
+Accept: application/json
+
+### Get all products in the "electronics" category
+GET {{backend_HostAddress}}/api/products/?category=Electronics
+Accept: application/json
+
+### Get all products in the "books" category
+GET {{backend_HostAddress}}/api/products/?category=Books
+Accept: application/json
+
+### Get all products with a minimum price of 50
+GET {{backend_HostAddress}}/api/products/?minprice=50
+Accept: application/json
+
+### Get a specific product by ID
+GET {{backend_HostAddress}}/api/products/1
+Accept: application/json
